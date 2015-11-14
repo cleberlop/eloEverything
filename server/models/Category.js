@@ -6,7 +6,7 @@ var statuses = "Scored Tag".split(" ");
 var schema = new mongoose.Schema({
   name:{type:String, lowercase:true, required:true, unique:true},
   questions_count:{type:Number, default:0},
-  status:{type:String, default:"Tag"}
+  fullCategory:{type:Boolean, default:false}
 });
 
 module.exports = mongoose.model('Category', schema)

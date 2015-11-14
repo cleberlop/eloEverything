@@ -50,9 +50,9 @@ module.exports = {
     if (req.query.status === "All"){
 
     }else if (req.query.status){
-      queryObj.status = req.query.status;
+      queryObj.fullCategory = true;
     }else{
-      queryObj.status = "Category";
+      queryObj.fullCategory = true;
     }
 
     Category.find(queryObj, function(err, result){

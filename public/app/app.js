@@ -1,4 +1,4 @@
-var app = angular.module("eloEverything", ['ngRoute',"angucomplete"]);
+var app = angular.module("eloEverything", ['ngRoute',"angucomplete","agGrid"]);
 
 app.constant('AUTH_EVENTS',{
   loginSuccess: 'auth-login-success',
