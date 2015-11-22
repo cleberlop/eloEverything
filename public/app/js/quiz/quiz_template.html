@@ -7,14 +7,16 @@
         </div>
         <div class = "col-sm-6">
           <strong>Popular Categories: </strong>
-          <select ng-options = "category.name for category in categories | orderBy:'-questions_count'" ng-model = "selectedCategory" ng-change = "loadQuestion(selectedCategory)"> </select>
+          <select ng-options = "category.name for category in categories  | orderBy:'-questions_count'" ng-model = "selectedCategory" ng-change = "loadQuestion(selectedCategory)"> </select>
         </div>
       </div>
       <div class = 'row'>
         <div class = 'col-sm-12' ng-show = "user.scores.length">
-          <strong>Your Categories:</strong>
-          <span ng-repeat ="category in user.scores|orderBy:'-score' | limitTo:limit" ng-click="loadQuestion(category._category)"><score-display score = "category"></score-display></span>
-          <i><small><span ng-show="limit<user.scores.length" ng-click = "limit=limit+5">More</span><span ng-show="limit>5" ng-click = "limit=limit - 5">Less</span></small></i>
+          <div class = "hidden-sm hidden-xs">
+            <strong>Your Categories:</strong>
+            <span ng-repeat ="category in user.scores|orderBy:'-score' | limitTo:limit" ng-click="loadQuestion(category._category)"><score-display score = "category"></score-display></span>
+            <i><small><span ng-show="limit<user.scores.length" ng-click = "limit=limit+5">More</span><span ng-show="limit>5" ng-click = "limit=limit - 5">Less</span></small></i>
+          </div>
         </div>
         <div class = 'col-sm-12' ng-hide = "user.scores.length">
           <span class = "h3">Select from populare categories to start increasing your elo score.</span>

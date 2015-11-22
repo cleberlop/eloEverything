@@ -2,8 +2,16 @@ var mongoose = require('mongoose');
 
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
+var maxlength;
+if(process.env.envStatus === "DEVELOPMENT"){
+  maxlength = 50;
+}else{
+  maxlength = 5;
+}
+
 var schema = new mongoose.Schema({
-  display_name:{type:String, required:true, maxlength:40},
+
+  display_name:{type:String, required:true, maxlength:maxlength},
   email:{type:String, lowercase:true},
   password:String,
   facebookId:String,
